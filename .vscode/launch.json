@@ -9,9 +9,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/TestAppConfig/bin/Debug/netcoreapp3.1/TestAppConfig.dll",
+            "program": "${workspaceFolder}/bin/Debug/netcoreapp3.1/TestAppConfig.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/TestAppConfig",
+            "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
