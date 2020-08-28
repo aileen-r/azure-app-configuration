@@ -12,6 +12,6 @@ Output of this Azure Docs tutorial: [Tutorial: Use Key Vault references in an AS
 
 ### 2. [Use Key Vault references in an ASP.NET Core app](https://docs.microsoft.com/en-us/azure/azure-app-configuration/use-key-vault-references-dotnet-core?tabs=bash%2Ccore3x).
 
-- This tutorial uses a service principal for Key Vault authentication. It provides the Azure CLI command for _creating_ a service principal in Azure. Where should the client ID, client secret and tenant ID be stored so others can run locally?
+- This tutorial uses a service principal for Key Vault authentication. It provides the Azure CLI command for _creating_ a service principal in Azure. The `clientId`, `clientSecret`, and `tenantId` must be noted somewhere for other collaborators to set as local environment variables.
 
 ### 3. [Use managed identities to access App Configuration](https://docs.microsoft.com/en-us/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core3x).
