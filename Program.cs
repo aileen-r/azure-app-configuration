@@ -1,4 +1,3 @@
-using System;
 using Azure.Identity;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,12 +18,19 @@ namespace TestAppConfig
             webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                #if DEBUG
-                var credentials = new DefaultAzureCredential();
-                #else
-                var credentials = new ManagedIdentityCredential();
-                #endif
+#if DEBUG                
+                config.AddAzureAppConfiguration(options =>
+                {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                        .ConfigureKeyVault(kv =>
+                        {
+                            kv.SetCredential(new DefaultAzureCredential());
+                        });
+                });
+            })
+#else
 
+                var credentials = new ManagedIdentityCredential();
                 config.AddAzureAppConfiguration(options =>
                 {
                     options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
@@ -33,7 +39,7 @@ namespace TestAppConfig
                             kv.SetCredential(credentials);
                         });
                 });
-            })
+#endif
             .UseStartup<Startup>());
-}
+    }
 }
