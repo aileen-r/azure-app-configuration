@@ -27,7 +27,6 @@ namespace TestAppConfig
                             kv.SetCredential(new DefaultAzureCredential());
                         });
                 });
-            })
 #else
 
                 var credentials = new ManagedIdentityCredential();
@@ -40,6 +39,7 @@ namespace TestAppConfig
                         });
                 });
 #endif
+            })
             .UseStartup<Startup>());
     }
 }
